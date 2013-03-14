@@ -73,6 +73,10 @@ class Array {
           !! self.WHAT.perl ~ '.new(' ~ self.map({.perl}).join(', ') ~ ')'
     }
 
+    method gist() {
+      '[' ~ self.map({.gist}).join(', ') ~ ']'
+    }
+
     method REIFY(Parcel \parcel, Mu \nextiter) {
         my Mu $rpa := nqp::getattr(parcel, Parcel, '$!storage');
         my Mu $iter := nqp::iterator($rpa);
